@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <math.h>
+
+long tinh_tong(int n) {
+    long S = 0;  
+    int i;
+
+    for (i = 1; i <= n; i++) {
+        
+        int num_dg = (int)log10(i) + 1;  
+        int num = i * pow(10, num_dg) + i; 
+        S += num;
+    }
+
+    return S;
+}
+
+int main() {
+    int n;
+
+    
+    printf("Nhap gia tri n (n >= 10): ");
+    scanf("%d", &n);
+
+    
+    if (n >= 10) {
+       
+        long ket_qua = tinh_tong(n);
+        printf("Tong S = %ld\n", ket_qua);
+    } else {
+        printf("Vui long nhap n >= 10.\n");
+    }
+
+    return 0;
+}
